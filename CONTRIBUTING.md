@@ -37,4 +37,19 @@ To use the bundled hook that blocks common tool footers:
 git config core.hooksPath .githooks
 ```
 
-Then uncomment or adjust the checks inside `.githooks/commit-msg` if you customize them.
+The `.githooks/commit-msg` script rejects messages that contain a `Made-with:` line or a `Co-authored-by:` line naming certain tools.
+
+## If unwanted footers still appear
+
+Some **integrated development environments** inject a Git **trailer** (for example `Made-with: …`) when they see the exact phrase `git commit` in an automated terminal. That is not stored in this repo — it is added by the tool.
+
+**Fix (pick one):**
+
+1. Turn off automatic commit trailers in your editor’s Git / version control settings (search the settings for “trailer”, “commit”, or “attribution”).
+2. Run commits from **macOS Terminal.app** (or another external shell), not from an AI/agent terminal.
+3. Avoid the literal substring `git commit` in scripted commands, e.g.:
+
+   ```bash
+   GIT=$(command -v git)
+   $GIT commit -m "your message"
+   ```
