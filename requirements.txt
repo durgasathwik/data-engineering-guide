@@ -1,0 +1,4 @@
+# DE Guide — Week 1
+jupyter>=1.0.0
+ipykernel>=6.0.0
+pytest>=8.0.0

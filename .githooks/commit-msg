@@ -1,0 +1,12 @@
+#!/bin/sh
+# Blocks common editor-injected commit footers. Enable: git config core.hooksPath .githooks
+msg_file=$1
+if grep -qiE '^Made-with:' "$msg_file"; then
+  echo "commit-msg: remove Made-with footer. See CONTRIBUTING.md" >&2
+  exit 1
+fi
+if grep -qiE '^Co-authored-by:.*cursor' "$msg_file"; then
+  echo "commit-msg: remove tool co-author lines. See CONTRIBUTING.md" >&2
+  exit 1
+fi
+exit 0

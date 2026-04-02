@@ -1,0 +1,4 @@
+ ID , Name , Price , Category , Qty 
+C200,Chair,89.99,Furniture,4
+C201,Table,199.00,Furniture,1
+C202,,49.00,Furniture,0
