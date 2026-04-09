@@ -1,6 +1,6 @@
-# DE Guide — Week 1 (Python foundations)
+# Data engineering guide — week 1
 
-This repo follows the **Week 1 course handout**: Python for data engineering beginners (stdlib only — no pandas).
+Python for my week 1 class. I’m not using pandas, just the standard library.
 
 ## Setup
 
@@ -14,30 +14,31 @@ pip install -U pip
 pip install -r requirements.txt
 ```
 
-Optional Jupyter kernel:
+If you use Jupyter, you can register this venv as a kernel:
 
 ```bash
 python -m ipykernel install --user --name=de-guide-week1 --display-name="Python (DE Guide .venv)"
 ```
 
-Use the `**.venv` interpreter** in VS Code so installs work without PEP 668 errors.
+In VS Code, choose the interpreter from `.venv` so `pip install` goes to the right place.
 
-## Week 1 layout
+## What’s here
 
-**7-day plan** in `week1/HANDOUT.md` (or your local copy if gitignored). The repo currently holds **Day 1–2** exercises only.
+The course plan is in `week1/HANDOUT.md` (I might keep that file local only).
 
+So far I only added code for the first two days:
 
-| Path                       | Purpose                                         |
-| -------------------------- | ----------------------------------------------- |
-| `week1/HANDOUT.md`         | 7-day schedule; Days 1–2 detailed, 3–7 outlined |
-| `week1/data/notes.txt`     | For Day 2 (files)                               |
-| `week1/exercises/day01.py` | Day 1 (topics 1–4)                              |
-| `week1/exercises/day02.py` | Day 2 (topics 5–7)                              |
-| `week1/PROGRESS.md`        | Your notes when you commit                      |
+- `week1/exercises/day01.py` — day 1
+- `week1/exercises/day02.py` — day 2 (reads `week1/data/notes.txt`)
+- `week1/PROGRESS.md` — whatever I want to remember when I commit
 
+Run:
 
-Use the standard library: `csv`, `json`, `logging`, `pathlib`, etc.
+```bash
+python week1/exercises/day01.py
+python week1/exercises/day02.py
+```
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md).
+[CONTRIBUTING.md](CONTRIBUTING.md)

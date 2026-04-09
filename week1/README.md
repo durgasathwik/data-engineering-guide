@@ -1,18 +1,15 @@
-# Week 1
+# Week 1 folder
 
-Read **`HANDOUT.md`** — it is a **7-day** plan. This folder only includes **Day 1** and **Day 2** practice code.
+See `HANDOUT.md` for the full 7-day outline. Right now this folder only has my work for days 1 and 2.
 
-| Path | Purpose |
-|------|---------|
-| `HANDOUT.md` | Full week plan; Days 1–2 in detail, Days 3–7 summarized |
-| `data/notes.txt` | Used on Day 2 (file reading) |
-| `exercises/day01.py` | Day 1 — topics 1–4 |
-| `exercises/day02.py` | Day 2 — topics 5–7 |
-| `PROGRESS.md` | Your notes when you commit |
+- `HANDOUT.md` — schedule + topics (might not be on github if it’s gitignored)
+- `exercises/day01.py` / `day02.py` — practice scripts
+- `data/notes.txt` — small file for day 2
+- `PROGRESS.md` — scratch notes
 
 ```bash
 python week1/exercises/day01.py
 python week1/exercises/day02.py
 ```
 
-Days 3–7: add your own `.py` files and CSVs under `data/` when you reach them (see handout).
+Later days I’ll add more scripts / csv files when I get there.
