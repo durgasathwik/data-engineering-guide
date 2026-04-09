@@ -45,7 +45,10 @@ coverage.xml
 # --- Course outputs (regenerate locally) ---
 *.log
 week1/data/output/
-week1/hands_on/output/
+
+# --- Week 1 — local copies (keep your own; not pushed) ---
+week1/HANDOUT.md
+week1/PROGRESS.md
 
 # --- OS ---
 .DS_Store

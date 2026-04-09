@@ -5,14 +5,11 @@ This project is maintained as **your own work** for teaching and portfolio use. 
 ## Git identity
 
 - Use **your real name** and **your email** for every commit:
-
   ```bash
   git config user.name "Your Real Name"
   git config user.email "you@example.com"
   ```
-
   For this repo only (inside the project folder):
-
   ```bash
   git config --local user.name "Your Real Name"
   git config --local user.email "you@example.com"
@@ -48,8 +45,8 @@ Some **integrated development environments** inject a Git **trailer** (for examp
 1. Turn off automatic commit trailers in your editor’s Git / version control settings (search the settings for “trailer”, “commit”, or “attribution”).
 2. Run commits from **macOS Terminal.app** (or another external shell), not from an AI/agent terminal.
 3. Avoid the literal substring `git commit` in scripted commands, e.g.:
-
-   ```bash
+  ```bash
    GIT=$(command -v git)
    $GIT commit -m "your message"
-   ```
+  ```
+
