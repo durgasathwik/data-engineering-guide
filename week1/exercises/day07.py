@@ -33,19 +33,15 @@ def main():
     print("Starting the Mini Project...")
     all_products = []
     
-    # Process Vendor 1
     v1_data = process_vendor(V1_PATH, id_col="Product ID", name_col="Product Name", category_col="Category", price_col="Price")
     all_products.extend(v1_data)
     
-    # Process Vendor 2
     v2_data = process_vendor(V2_PATH, id_col="id", name_col="name", category_col="category", price_col="price")
     all_products.extend(v2_data)
     
-    # Process Vendor 3
     v3_data = process_vendor(V3_PATH, id_col="item_code", name_col="item_name", category_col="item_group", price_col="cost")
     all_products.extend(v3_data)
     
-    # Deduplicate by product_id
     unique_products = {}
     for p in all_products:
         pid = p["product_id"]
