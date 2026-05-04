@@ -16,6 +16,6 @@ FROM orders
 WHERE order_date >= '2024-01-01'
 GROUP BY customer_id;
 
--- Conceptual Index Example:
--- Adding an index on (status, order_date) would speed up the first query.
--- CREATE INDEX idx_order_status_date ON orders(status, order_date);
+-- Performance Optimization: Indexing
+CREATE INDEX idx_order_status_date ON orders(status, order_date);
+
