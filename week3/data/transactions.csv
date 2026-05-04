@@ -1,0 +1,6 @@
+transaction_id,customer_id,status,amount,updated_at,source_system
+T001,1,initiated,1000,2024-03-01 10:00:00,APP
+T001,1,pending,1000,2024-03-01 10:05:00,CORE
+T001,1,completed,1000,2024-03-01 10:10:00,CORE
+T002,2,initiated,500,2024-03-02 11:00:00,APP
+T002,2,failed,500,2024-03-02 11:15:00,GATEWAY
