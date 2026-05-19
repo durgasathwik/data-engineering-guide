@@ -1,14 +1,12 @@
+from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
-
-# Day 3: Retries, SLAs, and Task States
 
 def ingest_task():
-    print("Ingesting with high retry logic...")
+    pass
 
 def transform_task():
-    print("Transforming with standard retry logic...")
+    pass
 
 with DAG(
     dag_id='day03_retries_slas',
@@ -16,7 +14,7 @@ with DAG(
     schedule_interval='0 2 * * *',
     catchup=False,
     default_args={
-        'sla': timedelta(hours=3) # SLA of 3 hours on the entire DAG
+        'sla': timedelta(hours=3)
     }
 ) as dag:
 
