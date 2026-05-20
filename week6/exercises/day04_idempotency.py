@@ -1,24 +1,12 @@
+from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime
 
-# Day 4: Idempotency
-
-# Non-idempotent example (Do not use in production)
-def load_non_idempotent():
-    # INSERT INTO shipments SELECT * FROM staging
-    pass
-
-# Idempotent example: DELETE-then-INSERT
 def load_idempotent(**context):
     execution_date = context['ds']
-    print(f"Executing idempotent load for date: {execution_date}")
     
-    # DELETE FROM shipments WHERE shipment_date = '{execution_date}'
-    print(f"Deleted existing records for {execution_date}")
-    
-    # INSERT INTO shipments SELECT * FROM staging WHERE shipment_date = '{execution_date}'
-    print(f"Inserted fresh records for {execution_date}")
+    delete_query = f"DELETE FROM shipments WHERE shipment_date = '{execution_date}'"
+    insert_query = f"INSERT INTO shipments SELECT * FROM staging WHERE shipment_date = '{execution_date}'"
 
 with DAG(
     dag_id='day04_idempotency',
