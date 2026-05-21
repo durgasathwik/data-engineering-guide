@@ -1,20 +1,16 @@
+from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from airflow.models import Variable
-from datetime import datetime
-
-# Day 6: Monitoring, Callbacks, and Variables
 
 def on_failure_callback(context):
     task_id = context['task_instance'].task_id
     execution_date = context['ds']
-    print(f"FAILED: Task {task_id} failed on execution date {execution_date}")
+    print(f"Failed: {task_id} - {execution_date}")
 
 def extract_data(**context):
-    # Fetch a variable from Airflow metadata database
-    # (In a real environment, you'd use Variable.get('WAREHOUSE_URL'))
-    warehouse_url = "dummy_warehouse_url" 
-    print(f"Connecting to warehouse at: {warehouse_url}")
+    warehouse_url = Variable.get('WAREHOUSE_URL', default_var="default_url")
+    pass
 
 with DAG(
     dag_id='day06_monitoring',

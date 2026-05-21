@@ -1,20 +1,18 @@
+from datetime import datetime
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime
-
-# Day 5: Task Dependencies and Parallel Execution
 
 def check():
-    print("Checking...")
+    pass
 
 def val_row():
-    print("Row validation...")
+    pass
 
 def val_schema():
-    print("Schema validation...")
+    pass
 
 def load():
-    print("Loading...")
+    pass
 
 with DAG(
     dag_id='day05_dependencies',
@@ -28,5 +26,4 @@ with DAG(
     schema_validation = PythonOperator(task_id='schema_validation', python_callable=val_schema)
     load_warehouse = PythonOperator(task_id='load_warehouse', python_callable=load)
 
-    # file_check runs first, then validations in parallel, then load after both succeed
     file_check >> [row_validation, schema_validation] >> load_warehouse
