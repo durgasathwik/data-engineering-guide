@@ -1,35 +1,30 @@
+import os
+from datetime import datetime, timedelta
 from airflow import DAG
 from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
-import os
-
-# Day 7 Mini Project: Logistics Company Daily Shipment Pipeline
 
 def on_failure(context):
     task_id = context['task_instance'].task_id
     exec_date = context['ds']
-    print(f"ALERT: FAILED Task {task_id} on {exec_date}")
+    print(f"Failure: {task_id} on {exec_date}")
 
 def check_file_arrival(**context):
     date = context['ds']
     path = f'/data/shipments/{date}.csv'
-    # Simulation: Normally we would check if os.path.exists(path)
-    print(f'Checking for shipment file: {path}')
-    # To test retry behavior, one could raise FileNotFoundError here.
+    if not os.path.exists(path):
+        raise FileNotFoundError(f'Missing file: {path}')
 
 def validate_records(**context):
-    date = context['ds']
-    print(f'Validating records for {date} (checking nulls, row counts)')
+    pass
 
 def transform_records(**context):
-    date = context['ds']
-    print(f'Transforming shipments for {date} (standardize, deduplicate)')
+    pass
 
 def load_to_warehouse(**context):
     date = context['ds']
-    print(f'Idempotent Load for {date}:')
-    print(f'1. DELETE existing records for {date}')
-    print(f'2. INSERT transformed records for {date}')
+    
+    delete_query = f"DELETE FROM warehouse.shipments WHERE execution_date = '{date}'"
+    insert_query = f"INSERT INTO warehouse.shipments SELECT * FROM staging.shipments WHERE execution_date = '{date}'"
 
 with DAG(
     dag_id='logistics_daily_pipeline',
